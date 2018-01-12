@@ -15,7 +15,7 @@ class ClassificationController extends Controller
     public function index()
     {
             return view('classification.index')
-            ->with('classificatio',animation_classification::find());
+            ->with('classification',animation_classification::all());
     }
 
     /**
@@ -26,6 +26,7 @@ class ClassificationController extends Controller
     public function create()
     {
         //
+        return view('classification.create');
     }
 
     /**
@@ -37,6 +38,12 @@ class ClassificationController extends Controller
     public function store(Request $request)
     {
         //
+        $classification_new = new animation_classification;
+        $classification_new->name = $request->input('name');
+        $classification_new->save();
+
+
+        return redirect('classification');
     }
 
     /**

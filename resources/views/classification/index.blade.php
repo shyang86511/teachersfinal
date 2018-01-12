@@ -1,26 +1,27 @@
 @extends('app')
 
-@section('title', 'LHU 在職老師')
+@section('title','LHU')
 
-@section('teachers_contents')
+@section('lhu_contents')
         <table class="flex-center position-ref">
             <tr>
-                <th>到職日</th>
-                <th>動畫分類</th>
-      
+                <th>分類編號</th>
+                <th>分類名稱</th>
+                <th>狀態</th>
             </tr>
-            {{dd($classificatio)}}
-        @forelse($classificatio as $classification)
+           
+        @forelse($classification as $classificationn)
             <tr>
-                <td>{{ $classification->name }}</td>
+                <td>{{ $classificationn->id }}</td>
+                <td>{{ $classificationn->name }}</td>
                 <td>
-                    <a href="{{ route('teachers.show', ['id' => $teacher->id])  }}">檢視</a></a>
+                    <a href="">檢視</a>
                 </td>
                 <td>
-                    <a href="{{ route('teachers.edit', ['id' => $teacher->id])  }}">編輯</a></a>
+                    <a href="">編輯</a>
                 </td>
                 <td>
-                    <a href="{{ route('teachers.destroy', ['id' => $teacher->id])  }}">離職</a></a>
+                    <a href="">離職</a>
                 </td>
             </tr>
         @empty
