@@ -15,18 +15,18 @@
                 <td>{{ $classificationn->id }}</td>
                 <td>{{ $classificationn->name }}</td>
                 <td>
-                    <a href="">檢視</a>
+                    <a href="{{ route('classification.show', ['id' => $classificationn->id])  }}">檢視</a>
                 </td>
                 <td>
-                    <a href="">編輯</a>
+                    <a href="{{ route('classification.edit', ['id' => $classificationn->id])  }}">編輯</a>
                 </td>
                 <td>
-                    <a href="">離職</a>
+                    <a href="{{ route('classification.destroy', ['id' => $classificationn->id])  }}">刪除</a>
                 </td>
             </tr>
         @empty
             <tr>
-                <td colspan="6">目前沒有老師</td>
+                <td colspan="6">目前沒有分類</td>
             </tr>
         @endforelse
         </table>

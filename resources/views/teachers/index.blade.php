@@ -2,7 +2,7 @@
 
 @section('title', 'LHU 在職老師')
 
-@section('teachers_contents')
+@section('lhu_contents')
         <table class="flex-center position-ref">
             <tr>
                 <th>到職日</th>

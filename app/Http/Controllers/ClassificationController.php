@@ -55,6 +55,10 @@ class ClassificationController extends Controller
     public function show($id)
     {
         //
+        $t = animation_classification::findOrFail($id);
+
+        return view('students.index')
+            ->with('students', $t->students);
     }
 
     /**
@@ -66,6 +70,8 @@ class ClassificationController extends Controller
     public function edit($id)
     {
         //
+        return view('classification.edit')
+        ->with('classification', animation_classification::findOrFail($id));
     }
 
     /**
@@ -78,6 +84,10 @@ class ClassificationController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $t = animation_classification::findOrFail($id);
+        $t->update($request->all());
+
+        return redirect('classification');
     }
 
     /**
@@ -89,5 +99,23 @@ class ClassificationController extends Controller
     public function destroy($id)
     {
         //
+        $t = animation_classification::findOrFail($id);
+        $t->delete();
+
+        return redirect('classification');
+    }
+
+    public function restore($id)
+    {
+        $t = animation_classification::onlyTrashed()->where('id', '=', $id);
+        $t->restore();
+
+        return redirect('classification/quit');
+    }
+
+    public function quit()
+    {
+        return view('classification.quit')->with('classification',
+            animation_classification::onlyTrashed()->get());
     }
 }
