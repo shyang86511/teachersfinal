@@ -16,42 +16,76 @@ Route::get('/', function () {
 });
 
 
-Route::get('/teachers/quit', 'TeachersController@quit')
-    ->name('teachers.quit');
+Route::get('/classification/quit', 'ClassificationController@quit')
+    ->name('classification.quit');
 
-Route::get('/teachers', 'TeachersController@index')
-    ->name('teachers.index');
+Route::get('/classification', 'ClassificationController@index')
+    ->name('classification.index');
 
 
-Route::get('/teachers/{id}', 'TeachersController@show')
+Route::get('/classification/{id}', 'ClassificationController@show')
     ->where('id', '[0-9]+')
-    ->name('teachers.show');
+    ->name('classification.show');
 
-Route::get('/teachers/create', 'TeachersController@create')
-    ->name('teachers.create');
+Route::get('/classification/create', 'ClassificationController@create')
+    ->name('classification.create');
 
-Route::patch('/teachers/{id}', 'TeachersController@update')
+Route::patch('/classification/{id}', 'ClassificationController@update')
     ->where('id', '[0-9]+')
-    ->name('teachers.update');
+    ->name('classification.update');
 
-Route::post('/teachers', 'TeachersController@store')
+Route::post('/classification', 'ClassificationController@store')
     ->where('id', '[0-9]+')
-    ->name('teachers.store');
+    ->name('classification.store');
 
 
-Route::get('/teachers/{id}/edit', 'TeachersController@edit')
+Route::get('/classification/{id}/edit', 'ClassificationController@edit')
     ->where('id', '[0-9]+')
-    ->name('teachers.edit');
+    ->name('classification.edit');
 
-Route::get('/teachers/{id}/delete', 'TeachersController@destroy')
+Route::get('/classification/{id}/delete', 'ClassificationController@destroy')
     ->where('id', '[0-9]+')
-    ->name('teachers.destroy');
+    ->name('classification.destroy');
 
-Route::get('/teachers/{id}/restore', 'TeachersController@restore')
+Route::get('/classification/{id}/restore', 'ClassificationController@restore')
     ->where('id', '[0-9]+')
-    ->name('teachers.restore');
+    ->name('classification.restore');
 
 
+Route::get('/students/quit', 'StudentsController@quit')
+    ->name('students.quit');
+
+Route::get('/students', 'StudentsController@index')
+    ->name('students.index');
+
+
+Route::get('/students/{id}', 'StudentsController@show')
+    ->where('id', '[0-9]+')
+    ->name('students.show');
+
+Route::get('/students/create', 'StudentsController@create')
+    ->name('students.create');
+
+Route::patch('/students/{id}', 'StudentsController@update')
+    ->where('id', '[0-9]+')
+    ->name('students.update');
+
+Route::post('/students', 'StudentsController@store')
+    ->where('id', '[0-9]+')
+    ->name('students.store');
+
+
+Route::get('/students/{id}/edit', 'StudentsController@edit')
+    ->where('id', '[0-9]+')
+    ->name('students.edit');
+
+Route::get('/students/{id}/delete', 'StudentsController@destroy')
+    ->where('id', '[0-9]+')
+    ->name('students.destroy');
+
+Route::get('/students/{id}/restore', 'StudentsController@restore')
+    ->where('id', '[0-9]+')
+    ->name('students.restore');
 /*
 Route::group(['as' => 'teachers.', 'prefix' => 'teachers'], function () {
     // url: /teacher/
