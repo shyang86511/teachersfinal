@@ -52,40 +52,40 @@ Route::get('/classification/{id}/restore', 'ClassificationController@restore')
     ->name('classification.restore');
 
 
-Route::get('/students/quit', 'StudentsController@quit')
+Route::get('/informations/quit', 'InformationsController@quit')
     ->name('students.quit');
 
-Route::get('/students', 'StudentsController@index')
+Route::get('/informations', 'InformationsController@index')
     ->name('students.index');
 
 
-Route::get('/students/{id}', 'StudentsController@show')
+Route::get('/informations/{id}', 'InformationsController@show')
     ->where('id', '[0-9]+')
-    ->name('students.show');
+    ->name('informations.show');
 
-Route::get('/students/create', 'StudentsController@create')
-    ->name('students.create');
+Route::get('/informations/create', 'InformationsController@create')
+    ->name('informations.create');
 
-Route::patch('/students/{id}', 'StudentsController@update')
+Route::patch('/informations/{id}', 'InformationsController@update')
     ->where('id', '[0-9]+')
-    ->name('students.update');
+    ->name('informations.update');
 
-Route::post('/students', 'StudentsController@store')
+Route::post('/informations', 'InformationsController@store')
     ->where('id', '[0-9]+')
-    ->name('students.store');
+    ->name('informations.store');
 
 
-Route::get('/students/{id}/edit', 'StudentsController@edit')
+Route::get('/informations/{id}/edit', 'InformationsController@edit')
     ->where('id', '[0-9]+')
-    ->name('students.edit');
+    ->name('informations.edit');
 
-Route::get('/students/{id}/delete', 'StudentsController@destroy')
+Route::get('/informations/{id}/delete', 'InformationsController@destroy')
     ->where('id', '[0-9]+')
-    ->name('students.destroy');
+    ->name('informations.destroy');
 
-Route::get('/students/{id}/restore', 'StudentsController@restore')
+Route::get('/informations/{id}/restore', 'InformationsController@restore')
     ->where('id', '[0-9]+')
-    ->name('students.restore');
+    ->name('informations.restore');
 /*
 Route::group(['as' => 'teachers.', 'prefix' => 'teachers'], function () {
     // url: /teacher/

@@ -10,11 +10,17 @@ class animation_classification extends Model
 {
     //
         protected $fillable = [
+			
 			'name'
     ];
         
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    public function informat() {
+
+        return $this->hasMany('App\animation_informations');
+
+    }
 }
 

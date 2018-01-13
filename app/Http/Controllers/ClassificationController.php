@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\animation_classification;
+use \App\animation_information;
+
 
 class ClassificationController extends Controller
 {
