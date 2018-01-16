@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\animation_classification;
-use \App\animation_information;
+
 
 
 class ClassificationController extends Controller
@@ -31,6 +31,15 @@ class ClassificationController extends Controller
         return view('classification.create');
     }
 
+    public function show($id)
+    {
+        $t = animation_classification::findOrFail($id);
+
+
+
+        return view('informations.index')
+            ->with('informations', $t->class_id);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -54,14 +63,7 @@ class ClassificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-        $t = animation_classification::findOrFail($id);
 
-        return view('students.index')
-            ->with('students', $t->students);
-    }
 
     /**
      * Show the form for editing the specified resource.
