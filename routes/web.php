@@ -51,6 +51,10 @@ Route::get('/classification/{id}/restore', 'ClassificationController@restore')
     ->where('id', '[0-9]+')
     ->name('classification.restore');
 
+Route::get('/classification/{id}/del', 'ClassificationController@del')
+    ->where('id', '[0-9]+')
+    ->name('informations.del');
+
 
 Route::get('/informations/quit', 'InformationsController@quit')
     ->name('students.quit');
@@ -82,6 +86,10 @@ Route::get('/informations/{id}/delete', 'InformationsController@destroy')
 Route::get('/informations/{id}/restore', 'InformationsController@restore')
     ->where('id', '[0-9]+')
     ->name('informations.restore');
+
+Route::get('/informations/{id}/del', 'InformationsController@del')
+    ->where('id', '[0-9]+')
+    ->name('informations.del');
 /*
 Route::group(['as' => 'teachers.', 'prefix' => 'teachers'], function () {
     // url: /teacher/

@@ -121,4 +121,13 @@ class ClassificationController extends Controller
         return view('classification.quit')->with('classification',
             animation_classification::onlyTrashed()->get());
     }
+
+    public function del($id)
+    {
+        //
+        $t = animation_classification::findOrFail($id);
+        $t->forceDelete();
+
+        return redirect('classification');
+    }
 }

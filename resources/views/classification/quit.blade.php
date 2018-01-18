@@ -14,7 +14,10 @@
                 <td>{{ $classificationn->id }}</td>
                 <td>{{ $classificationn->name }}</td>
                 <td>
-                    <a href="{{ route('classification.restore', ['id' => $classificationn->id])  }}">復職</a></a>
+                    <a href="{{ route('classification.restore', ['id' => $classificationn->id])  }}">恢復</a></a>
+                </td>
+                <td>
+                    <a href="{{ route('classification.del', ['id' => $classificationn->id])  }}">刪除分類</a></a>
                 </td>
             </tr>
         @empty
