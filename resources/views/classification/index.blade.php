@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title','LHU')
+@section('title','LHU 分類')
 
 @section('lhu_contents')
         <table class="flex-center position-ref">

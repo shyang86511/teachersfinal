@@ -53,7 +53,7 @@ Route::get('/classification/{id}/restore', 'ClassificationController@restore')
 
 Route::get('/classification/{id}/del', 'ClassificationController@del')
     ->where('id', '[0-9]+')
-    ->name('informations.del');
+    ->name('classification.del');
 
 
 Route::get('/informations/quit', 'InformationsController@quit')

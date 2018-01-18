@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'LHU 新增動畫資料')
+@section('title', 'LHU 新增動畫分類')
 
 @section('lhu_contents')
     {!! Form::open(['url' => 'classification']) !!}
