@@ -17,8 +17,8 @@ class animation_classification extends Model
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    public function informat() {
-         //print_r( $this->hasMany('App\animation_information'));
+    public function informations() {
+
         return $this->hasMany('App\animation_information');
 
     }

@@ -59,10 +59,6 @@ Route::get('/informations', 'InformationsController@index')
     ->name('students.index');
 
 
-Route::get('/informations/{id}', 'InformationsController@show')
-    ->where('id', '[0-9]+')
-    ->name('informations.show');
-
 Route::get('/informations/create', 'InformationsController@create')
     ->name('informations.create');
 

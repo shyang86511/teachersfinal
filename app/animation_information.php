@@ -10,7 +10,7 @@ class animation_information extends Model
     //
     protected $fillable = [
         'name',
-        'classification',
+        'animation_classification_id',
         'Original_author',
         'Manufacturer'
     ];
@@ -19,7 +19,7 @@ class animation_information extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function class()
+    public function animation_classification()
     {
         return $this->belongsTo('App\animation_classification');
     }

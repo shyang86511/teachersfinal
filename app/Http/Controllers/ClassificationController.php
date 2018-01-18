@@ -35,10 +35,8 @@ class ClassificationController extends Controller
     {
         $t = animation_classification::findOrFail($id);
 
-
-
         return view('informations.index')
-            ->with('informations', $t->class_id);
+            ->with('informations', $t->informations);
     }
     /**
      * Store a newly created resource in storage.
