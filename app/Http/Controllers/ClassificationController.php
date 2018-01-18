@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use \App\animation_classification;
+use \App\Http\Requests\animation_classificationRequest;
 
 
 
@@ -44,7 +45,7 @@ class ClassificationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(animation_classificationRequest $request)
     {
         //
         $classification_new = new animation_classification;
@@ -83,7 +84,7 @@ class ClassificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(animation_classificationRequest $request, $id)
     {
         //
         $t = animation_classification::findOrFail($id);

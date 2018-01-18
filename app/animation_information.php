@@ -12,7 +12,8 @@ class animation_information extends Model
         'name',
         'animation_classification_id',
         'Original_author',
-        'Manufacturer'
+        'Manufacturer',
+        'url'
     ];
 
     use SoftDeletes;
