@@ -124,8 +124,8 @@ class ClassificationController extends Controller
 
     public function del($id)
     {
-        //
-        $t = animation_classification::findOrFail($id);
+     
+        $t = animation_classification::onlyTrashed($id);
         $t->forceDelete();
 
         return redirect('classification');

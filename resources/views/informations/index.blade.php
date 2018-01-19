@@ -5,11 +5,11 @@
 @section('lhu_contents')
         <table class="flex-center position-ref">
             <tr>
-                <th>姓名</th>
-                <th>電子郵件信箱</th>
-                <th>出生日期</th>
-                <th>導師</th>
-                <th>編輯</th>
+                <th>動畫名稱</th>
+                <th>動畫作者</th>
+                <th>動畫製作商</th>
+                <th>url</th>
+                <th>分類</th>
                 <th>狀態</th>
             </tr>
         @forelse($informations as $information)

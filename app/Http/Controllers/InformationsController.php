@@ -111,7 +111,7 @@ class InformationsController extends Controller
     public function del($id)
     {
         //
-        $t =animation_information::findOrFail($id);
+        $t =animation_information::onlyTrashed($id);
         $t->forceDelete();
 
         return redirect('informations');
