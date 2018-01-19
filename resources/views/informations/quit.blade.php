@@ -1,27 +1,40 @@
 @extends('app')
 
-@section('title', 'LHU 休學學生')
+@section('title', 'LHU 刪除資料')
 
 @section('lhu_contents')
         <table class="flex-center position-ref">
             <tr>
                 <th>姓名</th>
                 <th>電子郵件信箱</th>
-                <th>到職日</th>
+                <th>出生日期</th>
+                <th>導師</th>
+                <th>編輯</th>
                 <th>狀態</th>
             </tr>
-        @forelse($students as $student)
+        @forelse($informations as $information)
             <tr>
-                <td>{{ $student->name }}</td>
-                <td><a href="mailto:{{ $student->email }}">{{ $student->email }}</a></td>
-                <td>{{ Carbon\Carbon::parse($student->born_at)->format('Y-m-d') }}</td>
+                <td>{{ $information->name }}</td>
+                <td>{{ $information->Original_author }}</td>
+                <td>{{ $information->Manufacturer }}</td>
+                <td>{{ $information->url }}</td>
                 <td>
-                    <a href="{{ route('students.restore', ['id' => $student->id])  }}">復學</a></a>
+                    @if (isset($information->animation_classification))
+                        {{ $information->animation_classification->name }}
+                    @else
+                        沒有分類
+                    @endif
+                </td>
+                <td>
+                    <a href="{{ route('informations.restore', ['id' => $information->id])  }}">復原</a></a>
+                </td>
+                <td>
+                    <a href="{{ route('informations.del', ['id' => $information->id])  }}">刪除</a></a>
                 </td>
             </tr>
         @empty
             <tr>
-                <td colspan="4">目前沒有老師</td>
+                <td colspan="6">目前沒有資料</td>
             </tr>
         @endforelse
         </table>

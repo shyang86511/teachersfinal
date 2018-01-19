@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'LHU 在學學生')
+@section('title', 'LHU 所有動畫資料')
 
 @section('lhu_contents')
         <table class="flex-center position-ref">
@@ -12,28 +12,29 @@
                 <th>編輯</th>
                 <th>狀態</th>
             </tr>
-        @forelse($students as $student)
+        @forelse($informations as $information)
             <tr>
-                <td>{{ $student->name }}</td>
-                <td><a href="mailto:{{ $student->email }}">{{ $student->email }}</a></td>
-                <td>{{ Carbon\Carbon::parse($student->born_at)->format('Y-m-d') }}</td>
+                <td>{{ $information->name }}</td>
+                <td>{{ $information->Original_author }}</td>
+                <td>{{ $information->Manufacturer }}</td>
+                <td>{{ $information->url }}</td>
                 <td>
-                    @if (isset($student->teacher))
-                        {{ $student->teacher->name }}
+                    @if (isset($information->animation_classification))
+                        {{ $information->animation_classification->name }}
                     @else
-                        導師離職
+                        沒有分類
                     @endif
                 </td>
                 <td>
-                    <a href="{{ route('students.edit', ['id' => $student->id])  }}">編輯</a></a>
+                    <a href="{{ route('informations.edit', ['id' => $information->id])  }}">編輯</a></a>
                 </td>
                 <td>
-                    <a href="{{ route('students.destroy', ['id' => $student->id])  }}">休學</a></a>
+                    <a href="{{ route('informations.destroy', ['id' => $information->id])  }}">刪除</a></a>
                 </td>
             </tr>
         @empty
             <tr>
-                <td colspan="6">目前沒有學生</td>
+                <td colspan="6">目前沒有資料</td>
             </tr>
         @endforelse
         </table>

@@ -15,13 +15,15 @@ class CreateAnimationInformationTable extends Migration
     {
         Schema::create('Animation_informations', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('animation_classification_id')->unsigned();
             $table->foreign('animation_classification_id')
                   ->references('id')
-                  ->on('Animation_classification')
+                  ->on('Animation_classifications')
                   ->onDelete('cascade');
             $table->string('Original_author');
             $table->string('Manufacturer');
+            $table->string('url');
             $table->timestamps();
             $table->softDeletes();
 

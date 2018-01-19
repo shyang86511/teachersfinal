@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use \App\Http\Requests\animation_informationRequest;
+use \App\animation_information;
+use \App\animation_classification;
 
 class InformationsController extends Controller
 {
@@ -36,11 +39,11 @@ class InformationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(animation_informationRequest $request)
     {
         //
 
-        $information_new = new Student;
+        $information_new = new animation_information;
         $information_new->name = $request->input('name');
         $information_new->Original_author = $request->input('Original_author');
         $information_new->Manufacturer = $request->input('Manufacturer');
@@ -56,7 +59,7 @@ class InformationsController extends Controller
         //
             return view('informations.edit')
             ->with(['informations'=>animation_information::findOrFail($id),
-                    'classification'=>animation_classification::latest('employed_at')->get()]);
+                    'classification'=>animation_classification::latest('updated_at')->get()]);
     }
 
     /**
@@ -66,7 +69,7 @@ class InformationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(animation_informationRequest $request, $id)
     {
         //
         $s = animation_information::findOrFail($id);
@@ -102,13 +105,13 @@ class InformationsController extends Controller
     {
 
         return view('informations.quit')->with('informations',
-            Student::onlyTrashed()->get());
+            animation_information::onlyTrashed()->get());
     }
 
     public function del($id)
     {
         //
-        $t = animation_information::findOrFail($id);
+        $t =animation_information::findOrFail($id);
         $t->forceDelete();
 
         return redirect('informations');
